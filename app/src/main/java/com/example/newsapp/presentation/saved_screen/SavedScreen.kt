@@ -1,4 +1,9 @@
 package com.example.newsapp.presentation.saved_screen
 
-class SavedScreen {
+import androidx.compose.runtime.Composable
+import com.example.newsapp.presentation.navigation.Screen
+
+@Composable
+fun SavedScreen() {
+
 }

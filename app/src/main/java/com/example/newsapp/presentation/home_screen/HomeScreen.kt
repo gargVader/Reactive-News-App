@@ -1,4 +1,9 @@
 package com.example.newsapp.presentation.home_screen
 
-class HomeScreen {
+import androidx.compose.runtime.Composable
+import com.example.newsapp.presentation.navigation.Screen
+
+@Composable
+fun HomeScreen() {
+    
 }
