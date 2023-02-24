@@ -1,18 +1,12 @@
 package com.example.newsapp.presentation.navigation
 
-import androidx.compose.foundation.layout.padding
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.ui.Modifier
 import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
-import androidx.navigation.compose.NavHost
-import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
-import com.example.newsapp.presentation.home_screen.HomeScreen
-import com.example.newsapp.presentation.saved_screen.SavedScreen
 
 @Composable
 fun BottomNav(navController: NavHostController) {

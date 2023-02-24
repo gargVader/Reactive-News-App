@@ -9,7 +9,7 @@ data class ArticleEntity(
     @PrimaryKey(autoGenerate = true)
     val id: Long? = null,
     @Embedded
-    val source: Source,
+    val source: Source?,
     val title: String?,
     val url: String?,
     val urlToImage: String?,

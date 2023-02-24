@@ -1,7 +1,7 @@
 package com.example.newsapp.data.mapper
 
-import com.example.newsapp.data.model.ArticleResponse
 import com.example.newsapp.data.model.ArticleEntity
+import com.example.newsapp.data.model.ArticleResponse
 
 fun ArticleEntity.toArticleResponse(): ArticleResponse {
     return ArticleResponse(

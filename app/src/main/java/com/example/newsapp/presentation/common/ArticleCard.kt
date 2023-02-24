@@ -3,10 +3,7 @@ package com.example.newsapp.presentation.common
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.Card
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
-import androidx.compose.material.TextButton
+import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -20,6 +17,7 @@ import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 import java.util.*
 
+@OptIn(ExperimentalMaterialApi::class)
 @Composable
 fun ArticleCard(
     article: ArticleEntity,
@@ -79,8 +77,10 @@ fun ArticleCard(
                                 }-${date.year}"
                             }
                         Column() {
-                            article.source.source_name?.let {
-                                Text(text = article.source.source_name)
+                            article.source?.let {
+                                it.source_name?.let {
+                                    Text(text = it)
+                                }
                             }
                             Text(text = dateTime)
                         }
