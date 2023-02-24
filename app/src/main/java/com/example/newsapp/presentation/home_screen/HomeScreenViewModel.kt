@@ -44,7 +44,7 @@ class HomeScreenViewModel @Inject constructor(
                     }
 
                     is Resource.Error -> {
-                        // handle error
+                        state = state.copy(isLoading = false)
                     }
                 }
             }

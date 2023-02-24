@@ -93,4 +93,8 @@ dependencies {
 
     // Coil
     implementation "io.coil-kt:coil-compose:2.2.2"
+
+    // Accompanist
+    implementation "com.google.accompanist:accompanist-swiperefresh:0.24.2-alpha"
+
 }
