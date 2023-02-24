@@ -12,7 +12,7 @@ interface ArticleRepository {
 
     suspend fun insert(article: ArticleEntity): Long
 
-    suspend fun delete(article: ArticleEntity)
+    suspend fun delete(id: Long)
 
     suspend fun deleteAll()
 }

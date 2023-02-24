@@ -10,8 +10,8 @@ data class ArticleEntity(
     val id: Long? = null,
     @Embedded
     val source: Source,
-    val title: String,
-    val url: String,
-    val urlToImage: String,
+    val title: String?,
+    val url: String?,
+    val urlToImage: String?,
     val publishedAt: String
 )

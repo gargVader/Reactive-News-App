@@ -44,8 +44,8 @@ class ArticleRepositoryImpl @Inject constructor(
         return dao.insert(article)
     }
 
-    override suspend fun delete(article: ArticleEntity) {
-        dao.delete(article)
+    override suspend fun delete(id: Long) {
+        dao.delete(id)
     }
 
     override suspend fun deleteAll() {

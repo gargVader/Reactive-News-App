@@ -16,8 +16,8 @@ interface ArticleDao {
     @Update
     suspend fun update(article: ArticleEntity)
 
-    @Delete
-    suspend fun delete(article: ArticleEntity)
+    @Query("DELETE FROM articleentity WHERE id LIKE :id")
+    suspend fun delete(id: Long)
 
     @Query("DELETE FROM articleentity")
     suspend fun deleteAll()

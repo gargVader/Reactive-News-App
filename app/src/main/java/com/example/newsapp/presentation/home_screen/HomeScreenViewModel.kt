@@ -6,6 +6,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.newsapp.data.model.ArticleEntity
 import com.example.newsapp.data.remote.NewsApi
 import com.example.newsapp.domain.repository.ArticleRepository
 import com.example.newsapp.util.Resource
@@ -24,6 +25,12 @@ class HomeScreenViewModel @Inject constructor(
         getNews()
     }
 
+    fun saveArticle(articleEntity: ArticleEntity) {
+        viewModelScope.launch {
+            repo.insert(articleEntity)
+        }
+    }
+
     private fun getNews() {
         viewModelScope.launch {
             repo.getAllArticles().collect { result ->
@@ -35,13 +42,12 @@ class HomeScreenViewModel @Inject constructor(
                     is Resource.Success -> {
                         if (result.data != null) {
                             state = state.copy(articleList = result.data)
+                            Log.d("Girish", "getNews: ${result.data}")
                         }
                     }
 
                     is Resource.Error -> {
-                        state = state.copy(
-                            articleList = result.data
-                        )
+                        // handle error
                     }
                 }
             }
