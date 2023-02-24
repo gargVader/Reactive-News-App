@@ -1,6 +1,6 @@
 package com.example.newsapp.data.model
 
-data class Article(
+data class ArticleResponse(
     val source: Source,
     val title: String,
     val url: String,
