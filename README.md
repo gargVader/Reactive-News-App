@@ -20,7 +20,6 @@ Download [apk](https://github.com/gargVader/Reactive-News-App/releases/tag/v1)
 - Hilt
 - Compose Navigation
 - Room
-- DataStore
 - Retrofit
 - moshi
 
