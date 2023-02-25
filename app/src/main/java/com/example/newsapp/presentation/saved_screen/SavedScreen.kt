@@ -17,13 +17,17 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavHostController
+import com.example.newsapp.presentation.navigation.Screen
 
 @Composable
 fun SavedScreen(
     context: Context = LocalContext.current,
     viewModel: SavedScreenViewModel = hiltViewModel(
         viewModelStoreOwner = (context as ComponentActivity)
-    )
+    ),
+    navController: NavHostController,
+    openWebView: (path: String) -> Unit
 ) {
 
     val state = viewModel.state
@@ -55,7 +59,14 @@ fun SavedScreen(
                 items(
                     items = state.articleList
                 ) { article ->
-                    SavedArticleItem(article = article, onCardClick = {})
+                    SavedArticleItem(
+                        article = article,
+                        onCardClick = {
+                            article.url?.let {
+                                openWebView(Screen.WebViewScreen.passUrl(it))
+                            }
+                        },
+                    )
                 }
             }
         }

@@ -1,35 +1,47 @@
 package com.example.newsapp.presentation.navigation
 
-import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.layout.padding
+import android.util.Log
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.example.newsapp.presentation.home_screen.HomeScreen
-import com.example.newsapp.presentation.saved_screen.SavedScreen
+import androidx.navigation.navArgument
+import com.example.newsapp.presentation.WebViewScreen
 
 @Composable
-fun RootGraph(navController: NavHostController, innerPadding: PaddingValues) {
-
+fun RootGraph(
+    navController: NavHostController,
+    navBarController: NavHostController
+) {
     NavHost(
-        navController,
-        startDestination = Screen.HomeScreen.route,
-        Modifier.padding(innerPadding)
+        navController = navController,
+        route = GRAPH_ROOT,
+        startDestination = GRAPH_MAIN
     ) {
 
         // Define all routes
-        composable(
-            route = Screen.HomeScreen.route
-        ) {
-            HomeScreen()
+        composable(route = Screen.WebViewScreen.route + "/{$ARG_URL}", arguments = listOf(
+            navArgument(
+                name = ARG_URL
+            ) {
+                type = NavType.StringType
+                defaultValue = "www.google.co.in"
+                nullable = false
+            }
+        )) {
+            val url = it.arguments?.getString(ARG_URL) ?: ""
+            Log.d("Girish", "RootGraph: $url")
+            WebViewScreen(url = url, navController = navController)
         }
 
-        composable(
-            Screen.SavedScreen.route
-        ) {
-            SavedScreen()
+        composable(route = GRAPH_MAIN) {
+            MainScreen(navController = navBarController) {
+                navController.navigate(it)
+            }
         }
+
     }
+
+
 }

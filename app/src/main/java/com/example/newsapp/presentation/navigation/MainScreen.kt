@@ -8,14 +8,14 @@ import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 
+
 @Composable
-fun BottomNav(navController: NavHostController) {
+fun MainScreen(navController: NavHostController, openWebView: (path : String) -> Unit) {
 
     val bottomNavList = listOf(
         Screen.HomeScreen,
         Screen.SavedScreen
     )
-
     Scaffold(
         bottomBar = {
             BottomNavigation {
@@ -51,6 +51,6 @@ fun BottomNav(navController: NavHostController) {
             }
         }
     ) { innerPadding ->
-        RootGraph(navController = navController, innerPadding = innerPadding)
+        MainGraph(navController = navController, openWebView = openWebView)
     }
 }

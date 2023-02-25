@@ -11,6 +11,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavHostController
+import com.example.newsapp.presentation.navigation.Screen
 import com.google.accompanist.swiperefresh.SwipeRefresh
 import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
 
@@ -19,7 +21,9 @@ fun HomeScreen(
     context: Context = LocalContext.current,
     viewModel: HomeScreenViewModel = hiltViewModel(
         viewModelStoreOwner = (context as ComponentActivity)
-    )
+    ),
+    navController: NavHostController,
+    openWebView: (path : String) -> Unit
 ) {
 
     val state = viewModel.state
@@ -36,9 +40,16 @@ fun HomeScreen(
             items(
                 items = state.articleList
             ) { article ->
-                ArticleItem(article = article, onCardClick = {}, onSaveClick = {
-                    viewModel.saveArticle(article)
-                })
+                ArticleItem(
+                    article = article,
+                    onCardClick = {
+                        article.url?.let {
+                            openWebView(Screen.WebViewScreen.passUrl(it))
+                        }
+                    },
+                    onSaveClick = {
+                        viewModel.saveArticle(article)
+                    })
             }
         }
     }

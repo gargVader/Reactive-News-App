@@ -1,5 +1,6 @@
 package com.example.newsapp.presentation.home_screen
 
+import android.util.Log
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
@@ -39,6 +40,7 @@ class HomeScreenViewModel @Inject constructor(
 
                     is Resource.Success -> {
                         if (result.data != null) {
+                            Log.d("Girish", "getNewsFromApi: ${result.data}")
                             state = state.copy(articleList = result.data)
                         }
                     }

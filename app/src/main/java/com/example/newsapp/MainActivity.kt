@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.navigation.compose.rememberNavController
-import com.example.newsapp.presentation.navigation.BottomNav
+import com.example.newsapp.presentation.navigation.RootGraph
 import com.example.newsapp.ui.theme.NewsAppTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -16,7 +16,8 @@ class MainActivity : ComponentActivity() {
         setContent {
             NewsAppTheme {
                 val navController = rememberNavController()
-                BottomNav(navController = navController)
+                val navBarController = rememberNavController()
+                RootGraph(navController = navController, navBarController = navBarController)
             }
         }
     }
