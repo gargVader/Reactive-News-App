@@ -6,8 +6,9 @@ Android app that shows top headlines from News API and allows you to save for of
 
 # 📷 Previews
 Download [apk](https://github.com/gargVader/Reactive-News-App/releases/tag/v1)
+
+[Demo video 📹](http://i.imgur.com/2PZYTBAh.gif)
 <p align="center">
-  <img src="http://i.imgur.com/2PZYTBAh.gif" width="250" />
   <img width="250" src="Screenshots/1.png" />
   <img width="250" src="Screenshots/2.png" />
 </p>
