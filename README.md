@@ -13,7 +13,7 @@ Download [apk](https://github.com/gargVader/Reactive-News-App/releases/tag/v1)
   <img width="250" src="Screenshots/2.png" />
 </p>
 
-# 🛠 Tech Sacks & Open Source Libraries
+# 🛠 Tech Stacks & Open Source Libraries
 
 - Jetpack Compose
 - ViewModel
